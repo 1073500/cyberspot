@@ -1,7 +1,8 @@
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import router from "./routes/spotCardsRouter.js";
+import spotCardsRouter from "./routes/spotCardsRouter.js";
+import categoryRouter  from "./routes/categoryRouter.js";
 
 dotenv.config();
 
@@ -12,7 +13,8 @@ app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/cyberspots", router);
+app.use("/cyberspots", spotCardsRouter);
+app .use("/categories", categoryRouter);
 
 try {
     await mongoose.connect(process.env.MONGODB_URI);

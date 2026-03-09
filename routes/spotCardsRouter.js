@@ -1,17 +1,17 @@
 import express from "express";
 import Spotcard from "../models/Spotcard.js";
 
-const router = express.Router();
+const spotCardsRouter = express.Router();
 //OPTIONS GET
 
-router.options("/", (req, res) => {
+spotCardsRouter.options("/", (req, res) => {
     res.header("Allow", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.status(204).send();
 });
 
 // GET ALL
-router.get("/", async(req, res) => {
+spotCardsRouter.get("/", async(req, res) => {
     try {
         const spotcards = await Spotcard.find({});
         
@@ -41,7 +41,7 @@ router.get("/", async(req, res) => {
 
 
 //DETAIL (get by id)
-router.get("/:id", async(req, res) => {
+spotCardsRouter.get("/:id", async(req, res) => {
     console.log("Details opgehaald")
     try {
         const cardId = req.params.id;
@@ -56,7 +56,7 @@ router.get("/:id", async(req, res) => {
 });
 
 //POST
-router.post('/', async(req, res) => {
+spotCardsRouter.post('/', async(req, res) => {
     console.log("Post ontvangen")
     try {
         const spotcard = new Spotcard ({
@@ -76,7 +76,7 @@ router.post('/', async(req, res) => {
 });
 
 //PUT
-router.put("/:id", async (req, res) => {
+spotCardsRouter.put("/:id", async (req, res) => {
     const id = req.params.id;
 
     const newSpotcard ={
@@ -110,7 +110,7 @@ router.put("/:id", async (req, res) => {
 
 
 //DELETE
-router.delete("/:id", async(req, res) => {
+spotCardsRouter.delete("/:id", async(req, res) => {
     console.log("Delete ontvangen", req.params.id);
     try {
         const deletedCard = await Spotcard.findByIdAndDelete(req.params.id);
@@ -135,4 +135,4 @@ router.delete("/:id", async(req, res) => {
     }
 });
 
-export default router;
+export default spotCardsRouter;
