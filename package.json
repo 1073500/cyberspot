@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node --env-file=.env --watch index.js"
+    "dev": "node --env-file=.env --watch index.js",
+    "build": "vite build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
