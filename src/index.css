@@ -1,25 +1,38 @@
+@import "tailwindcss";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+  font-family: 'Inter', sans-serif;
+
+  --regular: 400;
+  --semi-bold: 600;
+
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  /*colorpalette*/
+  --black-out: #000000;
+  --crosswalk: #6d6d6d;
+  --snow: #ffffff;
+  --transit-pink: #ff0051;
+  --new-york-green: #d2e430;
+  --orange-soda: #ff7700;
 }
+
+
+/*componets*/
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: var(--semi-bold);
+  color: var(--black-out)
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--transit-pink)
 }
 
 body {
@@ -46,12 +59,42 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+/*background*/
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.home {
+  background-image: url('/Myrobot.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 @media (prefers-color-scheme: light) {
@@ -59,9 +102,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
